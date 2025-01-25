@@ -1,0 +1,1 @@
+const message = 'Hello! This is some js code here!';
