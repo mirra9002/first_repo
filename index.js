@@ -2,7 +2,7 @@ const input = document.getElementById('input');
 const btAdd = document.getElementById('btAdd');
 const ul = document.getElementById('ul-todo');
 const divTodo = document.getElementById('div-todo');
-
+const p1 = document.getElementById('p1');
 
 const userTodo = [];
 
@@ -47,3 +47,12 @@ input.addEventListener('keydown', (event) => {
         addTask();
     }
 })
+
+let dataFromSQL;
+
+fetch('http://localhost:3000/data').then(response => response.json()).then(data => {
+    console.log(data);
+    dataFromSQL = data;
+    p1.textContent = JSON.stringify(dataFromSQL);  // Выводим данные в консоль
+}).catch(error => console.error('Error fetching data:', error));
+
